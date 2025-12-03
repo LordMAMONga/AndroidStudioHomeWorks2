@@ -35,7 +35,7 @@ class FilmAdapter(val filmList: List<FilmModel>) :
             binding.apply {
                 tvName.text = filmModel.name
                 tvRate.text = filmModel.rate
-                Glide.with(imgFilm).load(filmModel.img).into(imgFilm)
+                imgFilm.loadImg(filmModel.img)
             }
         }
     }
