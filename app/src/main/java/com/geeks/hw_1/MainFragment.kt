@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.geeks.hw_1.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
@@ -29,8 +30,13 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadData()
-        adapter = FilmAdapter(list)
+        adapter = FilmAdapter(list, ::onClick)
         binding.rvFilms.adapter = adapter
+    }
+
+    private fun onClick(filmModel: FilmModel){
+        val model = MainFragmentDirections.actionMainFragmentToDetailFragment(filmModel)
+        findNavController().navigate(model)
     }
 
     private fun loadData() {

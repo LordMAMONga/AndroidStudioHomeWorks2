@@ -1,8 +1,7 @@
-import javax.naming.Binding
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -55,4 +54,9 @@ dependencies {
 
     //Glide
     implementation("com.github.bumptech.glide:glide:5.0.5")
+
+    //navHost
+    val navVersion = "2.9.6"
+    implementation("androidx.navigation:navigation-fragment:${navVersion}")
+    implementation("androidx.navigation:navigation-ui:${navVersion}")
 }
